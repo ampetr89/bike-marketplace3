@@ -1197,7 +1197,7 @@ var AuthService = (function () {
     function AuthService(_http, _cookieService) {
         this._http = _http;
         this._cookieService = _cookieService;
-        this.api = 'http://ec2-54-165-157-13.compute-1.amazonaws.com:8000/auth';
+        this.api = '/auth';
     }
     AuthService.prototype.login = function (user) {
         var url = this.api + '/login';
@@ -1315,7 +1315,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var PostService = (function () {
     function PostService(_http) {
         this._http = _http;
-        this.api = 'http://ec2-54-165-157-13.compute-1.amazonaws.com:8000/api/posts';
+        this.api = '/api/posts';
     }
     PostService.prototype.JSONtoQuery = function (obj) {
         var serialized = [];
