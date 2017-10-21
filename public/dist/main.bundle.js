@@ -543,7 +543,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"login-menu\">\n  <a routerLink=\"/welcome/login\" class=\"selected\">Login</a> |\n  <a routerLink=\"/welcome/register\">Register</a>\n</div>\n<hr>\n<section class=\"w3-col l3\">\n  <h3>Login</h3>\n  <div class='errors' *ngIf=\"errorMessages\">\n    <p class=\"w3-panel w3-pale-red\" *ngFor=\"let msg of errorMessages\">\n      {{msg}}\n    </p>\n  </div>\n  <form (submit)=\"login($event)\" #loginData=\"ngForm\" autocomplete=\"off\" >\n\n    <p>Email</p>\n    <p><input type=\"email\" name=\"email\" [(ngModel)]=\"user.email\"></p>\n\n    <p>Password</p>\n    <p><input type=\"password\" name=\"password\" [(ngModel)]=\"user.password\"></p>\n\n    <input type=\"submit\" value=\"Login\">\n  </form>\n</section>\n"
+module.exports = "<div id=\"login-menu\">\n  <a routerLink=\"/welcome/login\" class=\"selected\">Login</a> |\n  <a routerLink=\"/welcome/register\">Register</a>\n</div>\n<hr>\n<section class=\"w3-col l3\">\n  <h3>Login</h3>\n  <div class='errors' *ngIf=\"errorMessages\">\n    <p class=\"w3-panel w3-pale-red\" *ngFor=\"let msg of errorMessages\">\n      {{msg | json}}\n    </p>\n  </div>\n  <form (submit)=\"login($event)\" #loginData=\"ngForm\" autocomplete=\"off\" >\n\n    <p>Email</p>\n    <p><input type=\"email\" name=\"email\" [(ngModel)]=\"user.email\"></p>\n\n    <p>Password</p>\n    <p><input type=\"password\" name=\"password\" [(ngModel)]=\"user.password\"></p>\n\n    <input type=\"submit\" value=\"Login\">\n  </form>\n</section>\n"
 
 /***/ }),
 
@@ -1197,7 +1197,7 @@ var AuthService = (function () {
     function AuthService(_http, _cookieService) {
         this._http = _http;
         this._cookieService = _cookieService;
-        this.api = 'http://localhost:8000/auth';
+        this.api = 'http://ec2-54-165-157-13.compute-1.amazonaws.com:8000/auth';
     }
     AuthService.prototype.login = function (user) {
         var url = this.api + '/login';
@@ -1315,7 +1315,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var PostService = (function () {
     function PostService(_http) {
         this._http = _http;
-        this.api = 'http://localhost:8000/api/posts';
+        this.api = 'http://ec2-54-165-157-13.compute-1.amazonaws.com:8000/api/posts';
     }
     PostService.prototype.JSONtoQuery = function (obj) {
         var serialized = [];

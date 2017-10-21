@@ -59,6 +59,9 @@ module.exports = {
     User.findById(req.params.id)
           .then(post => res.json(post))
           .catch(errorHandler.bind(res))
+  },
+  ping(req, res){
+    res.json({'msg':'The server is running!'})
   }
 }
 
